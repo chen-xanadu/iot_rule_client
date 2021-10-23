@@ -17,7 +17,7 @@ pip3 install httpx
 ### 2. Install IoT Inspector local
 ```shell
 cd $HOME
-git clone https://github.com/nyu-mlab/iot-inspector-local.git
+git clone https://github.com/chen-xanadu/iot-inspector-local.git
 cd iot-inspector-local
 python3 -m venv iot
 source ./iot/bin/activate
