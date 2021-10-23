@@ -36,30 +36,40 @@ while not utils.is_inspector_ready():
     time.sleep(2)
 
 
+# Continue to monitor old devices and scan for new devices
 while True:
     devices = utils.get_devices_from_inspector()
 
     for device_id, device in devices.items():
-        device_file = DEVICE_DIR / device_id
+        device_file = DEVICE_DIR / (device_id + '.json')
         if device_file.is_file():
 
             device_attr_old = json.loads(device_file.read_text())
 
-            if device_attr_old['name'] == device['dhcp_name']:
+            if device_attr_old['name'] == device['dhcp_name'] and \
+                    device_attr_old['internal_ip'] == device['device_ip'] and \
+                    device_attr_old['is_monitored'] == device['is_inspected']:
                 continue
 
-            continue
+            if device_attr_old['is_monitored'] != device['is_inspected']:
+                if device_attr_old['is_monitored']:
+                    httpx.get(INSPECTOR_URL + '/enable_inspection/' + device['device_id'])
+                else:
+                    httpx.get(INSPECTOR_URL + '/disable_inspection/' + device['device_id'])
+
 
         device_attr = {
             'id': device['device_id'],
             'internal_ip': device['device_ip'],
             'mac': device['device_mac'],
             'name': device['dhcp_name'],
+            'is_monitored': device['is_inspected']
         }
 
         resp = httpx.post(SERVER_BASE_URL + '/device.add', params={'token': token}, json=device_attr)
 
-        device_file.write_text(resp.json())
+        device_file.write_text(json.dumps(resp.json()))
 
 
     time.sleep(30)
+
