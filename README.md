@@ -54,13 +54,15 @@ sudo reboot
 
 ## After the participant gets the device
 
+### 1. Set participant to active
+
 When the Raspberry Pi is shipped, we should set the participant's status to active. One simple way to achieve this is to visit [the server's OpenAPI page](http://ec2-18-119-20-148.us-east-2.compute.amazonaws.com:5000/docs#/default/add_device_device_add_post) and execute the `/user.set_active` API.
 
 Once the Raspberry Pi is powered on (by the participant), the IoTInspector (and a few helper script) should be running automatically.
 
 **Please ensure the router is connected to the Internet AND the Raspberry Pi is connected to the router before powering on the Raspberry Pi!**  Sometimes the IoTInspector hangs up (failing to detect any local devices) if no Internet is detected. Reboot the Pi if such issue is encountered.
 
-### Choose which devices to monitor
+### 2. Choose which devices to monitor
 
 
 
