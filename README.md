@@ -35,7 +35,7 @@ export SERVER_API_KEY=????
 Download this repo under the home directory and run `register.py`.
 ```shell
 cd $HOME
-git clone ???
+git clone https://github.com/chen-xanadu/iot_rule_client
 python3 ./iot_rule_client/register.py
 ```
 If `register.py` runs successfully, it will output a nickname:
