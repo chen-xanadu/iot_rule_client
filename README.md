@@ -10,7 +10,7 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install -y python3-pip, python3-venv, git, autossh, lftp
+sudo apt install -y python3-pip, python3-venv, git, autossh, lftp, tcpdump
 pip3 install httpx
 ```
 
