@@ -66,7 +66,7 @@ with CronTab(user=os.getlogin()) as cron:
     inspector_job.every_reboot()
     
     tcpdump_job = cron.new(command=str(tcpdump_script))
-    tcpdump_job.eery_reboot()
+    tcpdump_job.every_reboot()
 
     initialize_job = cron.new(command='python3 ' + str(initialize_script))
     initialize_job.every_reboot()
