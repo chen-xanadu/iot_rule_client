@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+if [ ! -e "$HOME/iot_rule_client/tcpdumpout" ]; then
+`mkdir -p "$HOME/iot_rule_client/tcpdumpout"`
+fi
+
+
 sleep 30
 
 while true
