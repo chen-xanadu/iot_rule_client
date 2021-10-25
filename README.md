@@ -3,6 +3,9 @@
 ## Before shipping to the participant
 
 *What we need to do?*
+### Raspberry Pi Image installation
+
+Download the "Raspberry Pi OS Lite" image from https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-32-bit and flash SD card.
 
 ### 1. Install required packages
 
