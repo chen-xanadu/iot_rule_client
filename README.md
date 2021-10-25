@@ -5,7 +5,7 @@
 *What we need to do?*
 ### Raspberry Pi Image installation
 
-Download the "Raspberry Pi OS Lite" image from https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-32-bit and flash SD card.
+Download the "Raspberry Pi OS Lite" image from https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-32-bit and flash SD card. Once done, follow instructions below.
 
 ### 1. Install required packages
 
