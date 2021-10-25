@@ -13,8 +13,8 @@ Download the "Raspberry Pi OS Lite" image from https://www.raspberrypi.com/softw
 #!/bin/bash
 
 sudo apt update
-sudo apt install -y python3-pip, python3-venv, git, autossh, lftp, tcpdump
-pip3 install httpx
+sudo apt install -y python3-pip python3-venv git autossh lftp tcpdump
+pip3 install httpx python-crontab
 ```
 
 ### 2. Install IoT Inspector local
