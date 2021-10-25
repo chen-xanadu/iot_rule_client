@@ -9,6 +9,6 @@ USER_FILE = Path.home() / 'user.json'
 DEVICE_DIR = Path.home() / 'devices'
 
 # TODO: set to actual tcpdump dir
-TCPDUMP_DIR = Path.home()  /'iot_rule_client/tcpdumpout'
+TCPDUMP_DIR = Path.home()  / 'iot_rule_client/tcpdumpout'
 
 SFTP_UPLOAD_INTERVAL_IN_MINUTES = 1
