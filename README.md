@@ -59,7 +59,7 @@ sudo reboot
 
 ### 1. Set participant to active
 
-When the Raspberry Pi is shipped, we should set the participant's status to active. One simple way to achieve this is to visit [the server's OpenAPI page](http://ec2-18-119-20-148.us-east-2.compute.amazonaws.com:5000/docs#/default/set_active_user_set_active_post) and execute the `/user.set_active` API.
+When the Raspberry Pi is shipped, we should set the participant's status to active. One simple way to achieve this is to visit [the server's OpenAPI page](https://wiscshr.com/docs#/default/set_active_user_set_active_post) and execute the `/user.set_active` API.
 
 Once the Raspberry Pi is powered on (by the participant), the IoTInspector (and a few helper script) should be running automatically.
 
@@ -71,10 +71,10 @@ Once the Raspberry Pi is powered on (by the participant), the IoTInspector (and 
 
 #### For actual participant
 
-During our meeting with the participant, we will visit `http://ec2-18-119-20-148.us-east-2.compute.amazonaws.com:5000/devices/[nickname]` and select which devices to monitor. Then, we can ssh into the Pi to run `monitor.py` to start monitoring.
+During our meeting with the participant, we will visit `https://wiscshr.com/devices/[nickname]` and select which devices to monitor. Then, we can ssh into the Pi to run `monitor.py` to start monitoring.
 
 #### For internal testing
 
-Visit `http://ec2-18-119-20-148.us-east-2.compute.amazonaws.com:5000/[nickname]`, which will redirect to a page hosted locally by the Pi to select which devices to monitor.
+Visit `https://wiscshr.com/[nickname]`, which will redirect to a page hosted locally by the Pi to select which devices to monitor.
 
 *Note:* if most device names are empty, restarting the router usually helps. 
