@@ -1,6 +1,7 @@
 import json
 import subprocess
 import time
+from datetime import datetime
 from pathlib import Path
 
 import httpx
@@ -41,6 +42,12 @@ interval = 10
 max_interval = 600
 
 while True:
+
+    if utils.is_inspector_ready():
+        utils.ping_server(token)
+    else:
+        continue
+
     devices = utils.get_devices_from_inspector()
 
     for device_id, device in devices.items():
@@ -68,7 +75,8 @@ while True:
             'internal_ip': device['device_ip'],
             'mac': device['device_mac'],
             'name': device['dhcp_name'],
-            'is_monitored': device['is_inspected']
+            'is_monitored': device['is_inspected'],
+            'last_monitor_timestamp': str(datetime.utcnow())
         }
 
         resp = httpx.post(SERVER_BASE_URL + '/device.add', params={'token': token}, json=device_attr)

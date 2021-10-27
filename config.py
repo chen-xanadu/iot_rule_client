@@ -1,7 +1,7 @@
 from pathlib import Path
 
-SERVER_DOMAIN = 'ec2-18-119-20-148.us-east-2.compute.amazonaws.com'
-SERVER_BASE_URL = 'http://' + SERVER_DOMAIN + ':5000'
+SERVER_DOMAIN = 'wiscshr.com'
+SERVER_BASE_URL = 'https://' + SERVER_DOMAIN
 
 INSPECTOR_URL = 'http://localhost:46241'
 

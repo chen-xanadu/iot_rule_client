@@ -17,6 +17,14 @@ def is_active(token: str):
         return False
 
 
+def ping_server(token: str):
+    try:
+        httpx.post(SERVER_BASE_URL + '/user.ping', params={'token': token})
+    except:
+        pass
+
+
+
 def update_local_ip(token: str, local_ip: str):
     resp = httpx.post(SERVER_BASE_URL + '/user.update', params={'token': token,
                                                                 'internal_ip': local_ip})

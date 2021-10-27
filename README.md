@@ -13,7 +13,7 @@ Download the "Raspberry Pi OS Lite" image from https://www.raspberrypi.com/softw
 #!/bin/bash
 
 sudo apt update
-sudo apt install -y python3-pip python3-venv git autossh lftp tcpdump
+sudo apt install -y python3-pip python3-venv git autossh lftp tcpdump nmap
 pip3 install httpx python-crontab
 ```
 

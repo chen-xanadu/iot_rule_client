@@ -40,7 +40,7 @@ print(f'The nickname for this device is: {user_data["nickname"]}')
 nickname = user_data['nickname']
 ssh_port = user_data['ssh_port']
 
-autossh_cmd = f'autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -fN -R ' \
+autossh_cmd = f'autossh -M 0 -o "StrictHostKeyChecking no" -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -fN -R ' \
               f'{ssh_port}:localhost:22 {nickname}@{SERVER_DOMAIN}'
 
 
