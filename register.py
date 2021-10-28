@@ -3,7 +3,7 @@ import subprocess
 import os
 from pathlib import Path
 
-import httpx
+import requests
 from crontab import CronTab
 
 from config import *
@@ -13,13 +13,13 @@ from config import *
 pk = Path.home() / '.ssh' / 'id_ed25519.pub'
 
 if not pk.is_file():
-    subprocess.run(f'ssh-keygen -q -t ed25519 -N "" -f "{pk}"', shell=True, capture_output=True, text=True)
+    subprocess.run('ssh-keygen -q -t ed25519 -N "" -f "{}"'.format(pk), shell=True)
 
 
 # Registering with server
 SERVER_API_KEY = os.getenv('SERVER_API_KEY')
 
-resp = httpx.post(SERVER_BASE_URL + '/user.add', params={'api_key': SERVER_API_KEY}, files={'pk': pk.open('rb')})
+resp = requests.post(SERVER_BASE_URL + '/user.add', params={'api_key': SERVER_API_KEY}, files={'pk': pk.open('rb')})
 
 user_data = resp.json()
 
@@ -33,18 +33,18 @@ USER_FILE.write_text(json.dumps(user_data))
 DEVICE_DIR.mkdir(parents=True, exist_ok=True)
 
 
-print(f'The nickname for this device is: {user_data["nickname"]}')
+print('The nickname for this device is: {}'.format(user_data["nickname"]))
 
 
 # Format cron job commands
 nickname = user_data['nickname']
 ssh_port = user_data['ssh_port']
 
-autossh_cmd = f'autossh -M 0 -o "StrictHostKeyChecking no" -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -fN -R ' \
-              f'{ssh_port}:localhost:22 {nickname}@{SERVER_DOMAIN}'
+autossh_cmd = 'autossh -M 0 -o "StrictHostKeyChecking no" -o "ServerAliveInterval 30" -o "ServerAliveCountMax 3" -fN -R ' \
+              '{}:localhost:22 {}@{}'.format(ssh_port, nickname, SERVER_DOMAIN)
 
 
-sftp_cmd = f'lftp sftp://{nickname}:@{SERVER_DOMAIN} -e "mirror -R --Move {TCPDUMP_DIR}/ uploads; bye"'
+sftp_cmd = 'lftp sftp://{}:@{} -e "mirror -R --Move {}/ uploads; bye"'.format(nickname, SERVER_DOMAIN, str(TCPDUMP_DIR))
 
 inspector_script = Path(__file__).resolve().parent / 'start_inspector.sh'
 inspector_script.chmod(0o755)

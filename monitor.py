@@ -4,7 +4,7 @@ import time
 import os
 from pathlib import Path
 
-import httpx
+import requests
 from crontab import CronTab
 
 import utils
