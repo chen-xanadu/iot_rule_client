@@ -69,9 +69,9 @@ Once the Raspberry Pi is powered on (by the participant), the IoTInspector (and 
 
 
 
-#### For actual participant
+#### ~~For actual participant~~ I'm changing the server-side to incorporate new changes Ignore this part for now.
 
-During our meeting with the participant, we will visit `https://wiscshr.com/devices/[nickname]` and select which devices to monitor. Then, we can ssh into the Pi to run `monitor.py` to start monitoring.
+~~During our meeting with the participant, we will visit `https://wiscshr.com/devices/[nickname]` and select which devices to monitor. Then, we can ssh into the Pi to run `monitor.py` to start monitoring.~~
 
 #### For internal testing
 
