@@ -10,10 +10,11 @@ from config import *
 
 
 # Generating ssh key
+sk = Path.home() / '.ssh' / 'id_ed25519'
 pk = Path.home() / '.ssh' / 'id_ed25519.pub'
 
-if not pk.is_file():
-    subprocess.run('ssh-keygen -q -t ed25519 -N "" -f "{}"'.format(pk), shell=True)
+if not sk.is_file():
+    subprocess.run('ssh-keygen -q -t ed25519 -N "" -f "{}"'.format(sk), shell=True)
 
 
 # Registering with server
