@@ -73,4 +73,3 @@ with CronTab(user=os.getlogin()) as cron:
 
     sftp_job = cron.new(command=sftp_cmd)
     sftp_job.minute.every(SFTP_UPLOAD_INTERVAL_IN_MINUTES)
-

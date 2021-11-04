@@ -26,7 +26,7 @@ USER_FILE.write_text(json.dumps(user))
 
 # upload pi's local IP
 p = subprocess.run('hostname -I', shell=True, stdout=subprocess.PIPE)
-local_ip = p.stdout.decode().strip()
+local_ip = p.stdout.decode().strip().split()[0]
 
 utils.update_local_ip(token, local_ip)
 
