@@ -18,7 +18,7 @@ do
         sudo timeout 30m tcpdump -i eth0 -s96 'ip or icmp or tcp or udp' -w $HOME/iot_rule_client/tcpdumpout/tcpdumpout.${curr_date}.pcap 2>&1
         
         # UNCOMMENT LINE TO COLLECT ENTIRE PACKETS
-        #sudo timeout 30m tcpdump -i eth0 -s96 'ip or icmp or tcp or udp' -w $HOME/iot_rule_client/tcpdumpout/tcpdumpout.${curr_date}.pcap 2>&1
+        #sudo timeout 30m tcpdump -i eth0 'ip or icmp or tcp or udp' -w $HOME/iot_rule_client/tcpdumpout/tcpdumpout.${curr_date}.pcap 2>&1
         ls -t $HOME/iot_rule_client/tcpdumpout/tcpdumpout.* | head -n 1 | xargs -I XX tshark -r XX -T json > $HOME/iot_rule_client/tcpdumpoutJSON/tcpdumpoutJSON.${curr_date}.json
 done
 
