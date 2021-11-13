@@ -8,7 +8,10 @@ INSPECTOR_URL = 'http://localhost:46241'
 USER_FILE = Path.home() / 'user.json'
 DEVICE_DIR = Path.home() / 'devices'
 
-# TODO: set to actual tcpdump dir
-TCPDUMP_DIR = Path.home()  / 'iot_rule_client/tcpdumpout'
+# path to tcpdump json files
+TCPDUMP_DIR = Path.home()  / '$HOME/iot_rule_client/tcpdumpoutJSON'
+
+# path to tcpdump pcaps
+# TCPDUMP_DIR = Path.home()  / '$HOME/iot_rule_client/tcpdumpout'
 
 SFTP_UPLOAD_INTERVAL_IN_MINUTES = 1
