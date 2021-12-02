@@ -9,7 +9,7 @@ USER_FILE = Path.home() / 'user.json'
 DEVICE_DIR = Path.home() / 'devices'
 
 # path to tcpdump json files
-TCPDUMP_DIR_JSON = Path.home()  / 'iot_rule_client/tcpdumpoutJSON'
+#TCPDUMP_DIR_JSON = Path.home()  / 'iot_rule_client/tcpdumpoutJSON'
 
 # path to tcpdump csv files
 TCPDUMP_DIR = Path.home()  / 'iot_rule_client/tcpdumpoutCSV'
