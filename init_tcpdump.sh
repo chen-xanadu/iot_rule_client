@@ -5,8 +5,14 @@ if [ ! -e "$HOME/iot_rule_client/tcpdumpout" ]; then
 `mkdir -p "$HOME/iot_rule_client/tcpdumpout"`
 fi
 
-if [ ! -e "$HOME/iot_rule_client/tcpdumpoutJSON" ]; then
-`mkdir -p "$HOME/iot_rule_client/tcpdumpoutJSON"`
+
+UNCOMMENT LINES TO CONVERT TO JSON
+#if [ ! -e "$HOME/iot_rule_client/tcpdumpoutJSON" ]; then
+#`mkdir -p "$HOME/iot_rule_client/tcpdumpoutJSON"`
+#fi
+
+if [ ! -e "$HOME/iot_rule_client/tcpdumpoutCSV" ]; then
+`mkdir -p "$HOME/iot_rule_client/tcpdumpoutCSV"`
 fi
 
 
